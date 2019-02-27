@@ -39,7 +39,19 @@ public class Maze{
           String line = s.nextLine();
           System.out.println(line);
         }
+        //save maze as an array
+
 
     }
-}
 
+    private void wait(int millis){
+     try {
+         Thread.sleep(millis);
+     }
+     catch (InterruptedException e) {
+     }
+ }
+    public void setAnimate(boolean b){
+    animate = b;
+  }
+}
