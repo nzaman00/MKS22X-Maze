@@ -35,14 +35,23 @@ public class Maze{
         animate = false;
         File text = new File(filename);
         Scanner s = new Scanner(text);
+        String line = "";
         while(s.hasNextLine()){
-          String line = s.nextLine();
-          System.out.println(line);
+          line += s.nextLine();
+          line += "\n";
+
         }
-        //save maze as an array
+        int row = 0;
+        int col = 0;
+        for(int i = 0; i < line.length(); i++){
+          if(line.charAt(i) == '\n'){
+            row++;
+          }
+        }
+        col = line.length() / row;
+        maze = new char[row][col];
         
-
-
+        //save maze as an array
     }
 
     private void wait(int millis){
@@ -59,5 +68,5 @@ public class Maze{
     //erase terminal, go to top left of screen
     System.out.println("\033[2J\033[1;1H");
   }
-  
+
 }
