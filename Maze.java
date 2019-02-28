@@ -13,7 +13,6 @@ public class Maze{
         while(s.hasNextLine()){
           line += s.nextLine();
           line += "\n";
-
         }
         int row = 0;
         int col = 0;
@@ -24,15 +23,16 @@ public class Maze{
         }
         col = line.length() / row;//to calculate number of cols
         maze = new char[row][col];
-        int index = 0;//to keep track of the index of line 
+        int index = 0;//to keep track of the index of line
         //save the maze into an array
         for(int r = 0;r <maze.length; r++){
           for(int c = 0; c < maze[0].length; c++){
             maze[r][c]= line.charAt(index);
-            index++; 
+            index++;
           }
         }
     }
+
 
     private void wait(int millis){
      try {
@@ -41,12 +41,28 @@ public class Maze{
      catch (InterruptedException e) {
      }
    }
+
+
     public void setAnimate(boolean b){
     animate = b;
   }
+
+
   public void clearTerminal(){
     //erase terminal, go to top left of screen
     System.out.println("\033[2J\033[1;1H");
   }
+
+
+  public String toString(){
+    String ans = "";
+    for(int r = 0; r < maze.length; r++){
+      for(int c = 0; c < maze[0].length; c++){
+        ans += maze[r][c];
+      }
+    }
+    return ans;
+  }
+
 
 }
